@@ -10,8 +10,8 @@ class ControlPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final status = controller.deviceStatus;
-    final enabled = controller.connection.isConnected &&
-        !controller.isCommandPending;
+    final enabled =
+        controller.connection.isConnected && !controller.isCommandPending;
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -60,14 +60,14 @@ class ControlPage extends StatelessWidget {
                     Expanded(
                       child: OutlinedButton.icon(
                         onPressed: enabled
-                              ? () => controller.setDamping(
-                                    (status.dampingLevel - 5)
-                                        .clamp(
-                                          status.minDamping,
-                                          status.maxDamping,
-                                        )
-                                        .toInt(),
-                                  )
+                            ? () => controller.setDamping(
+                                  (status.dampingLevel - 5)
+                                      .clamp(
+                                        status.minDamping,
+                                        status.maxDamping,
+                                      )
+                                      .toInt(),
+                                )
                             : null,
                         icon: const Icon(Icons.remove),
                         label: const Text('降低 5'),
@@ -77,14 +77,14 @@ class ControlPage extends StatelessWidget {
                     Expanded(
                       child: OutlinedButton.icon(
                         onPressed: enabled
-                              ? () => controller.setDamping(
-                                    (status.dampingLevel + 5)
-                                        .clamp(
-                                          status.minDamping,
-                                          status.maxDamping,
-                                        )
-                                        .toInt(),
-                                  )
+                            ? () => controller.setDamping(
+                                  (status.dampingLevel + 5)
+                                      .clamp(
+                                        status.minDamping,
+                                        status.maxDamping,
+                                      )
+                                      .toInt(),
+                                )
                             : null,
                         icon: const Icon(Icons.add),
                         label: const Text('提高 5'),

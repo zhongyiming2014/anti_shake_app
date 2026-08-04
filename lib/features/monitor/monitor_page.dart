@@ -81,7 +81,8 @@ class MonitorPage extends StatelessWidget {
           icon: Icon(controller.isRecording ? Icons.stop : Icons.play_arrow),
           label: Text(controller.isRecording ? '结束本次书写' : '开始记录书写'),
           style: FilledButton.styleFrom(
-            backgroundColor: controller.isRecording ? Colors.red.shade700 : null,
+            backgroundColor:
+                controller.isRecording ? Colors.red.shade700 : null,
           ),
         ),
         if (controller.notice != null) ...[

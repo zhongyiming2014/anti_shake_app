@@ -39,7 +39,9 @@ class _MainShellState extends State<MainShell> {
                 padding: const EdgeInsets.only(right: 16),
                 child: Center(
                   child: Text(
-                    widget.controller.connection.isConnected ? '● 已连接' : '○ 未连接',
+                    widget.controller.connection.isConnected
+                        ? '● 已连接'
+                        : '○ 未连接',
                     style: TextStyle(
                       color: widget.controller.connection.isConnected
                           ? Colors.green.shade700
@@ -57,7 +59,8 @@ class _MainShellState extends State<MainShell> {
             onDestinationSelected: (value) => setState(() => _index = value),
             destinations: const [
               NavigationDestination(icon: Icon(Icons.bluetooth), label: '设备'),
-              NavigationDestination(icon: Icon(Icons.monitor_heart), label: '监测'),
+              NavigationDestination(
+                  icon: Icon(Icons.monitor_heart), label: '监测'),
               NavigationDestination(icon: Icon(Icons.tune), label: '控制'),
               NavigationDestination(icon: Icon(Icons.description), label: '报告'),
               NavigationDestination(icon: Icon(Icons.settings), label: '设置'),

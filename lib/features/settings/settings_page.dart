@@ -27,9 +27,9 @@ class SettingsPage extends StatelessWidget {
         Card(
           child: Column(
             children: [
-              ListTile(
-                leading: const Icon(Icons.speed),
-                title: const Text('模拟采样率'),
+              const ListTile(
+                leading: Icon(Icons.speed),
+                title: Text('模拟采样率'),
                 trailing: Text('${PenProtocolConfig.sampleRateHz} Hz'),
               ),
               const Divider(height: 1),

@@ -37,9 +37,8 @@ class _SensorChartPainter extends CustomPainter {
     }
 
     if (samples.length < 2) return;
-    final visible = samples.length > 150
-        ? samples.sublist(samples.length - 150)
-        : samples;
+    final visible =
+        samples.length > 150 ? samples.sublist(samples.length - 150) : samples;
     final maxValue = visible.fold<double>(
       1,
       (current, sample) => max(

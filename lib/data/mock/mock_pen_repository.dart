@@ -32,8 +32,7 @@ class MockPenRepository implements PenRepository {
       );
 
   @override
-  Stream<PenConnectionStatus> watchConnection() =>
-      _connectionController.stream;
+  Stream<PenConnectionStatus> watchConnection() => _connectionController.stream;
 
   @override
   Stream<SensorSample> watchSensorData() => _sensorController.stream;
@@ -83,9 +82,8 @@ class MockPenRepository implements PenRepository {
       final tremorWave = sin(_elapsedSeconds * pi * 9) * dampingFactor;
       final writingWave = sin(_elapsedSeconds * pi * 1.4) * 0.28;
       final noise = (_random.nextDouble() - 0.5) * 0.08;
-      final intensity = (tremorWave.abs() * 0.78 + noise.abs())
-          .clamp(0.0, 1.0)
-          .toDouble();
+      final intensity =
+          (tremorWave.abs() * 0.78 + noise.abs()).clamp(0.0, 1.0).toDouble();
 
       _sensorController.add(SensorSample(
         sequence: _sequence++,
