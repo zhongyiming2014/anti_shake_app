@@ -11,6 +11,12 @@ abstract final class AppTheme {
     return ThemeData(
       colorScheme: scheme,
       useMaterial3: true,
+      fontFamily: 'NotoSansSC',
+      fontFamilyFallback: const [
+        'Microsoft YaHei',
+        'PingFang SC',
+        'sans-serif'
+      ],
       scaffoldBackgroundColor: const Color(0xFFF5F8FC),
       appBarTheme: const AppBarTheme(centerTitle: false),
       filledButtonTheme: FilledButtonThemeData(
