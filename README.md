@@ -46,7 +46,7 @@ the original Windows path.
 Manual launch:
 
 ```powershell
-subst S: 'C:\111111111111111111111111SHU\四个一——“防抖笔”'
+subst S: 'C:\XXXXX\XXXXXX'
 Set-Location S:\anti_shake_app
 & 'C:\dev\flutter\bin\flutter.bat' run -d chrome
 ```
