@@ -1,26 +1,25 @@
 @echo off
 setlocal
 
-set "FLUTTER_EXE=C:\dev\flutter\bin\flutter.bat"
-if not exist "%FLUTTER_EXE%" (
-  echo Flutter not found: %FLUTTER_EXE%
+set "DART_EXE=C:\dev\flutter\bin\cache\dart-sdk\bin\dart.exe"
+set "SERVER_SCRIPT=%~dp0tool\web_demo_server.dart"
+set "WEB_BUILD=%~dp0build\web"
+
+if not exist "%DART_EXE%" (
+  echo Dart not found: %DART_EXE%
   echo Please check the Flutter installation path.
   pause
   exit /b 1
 )
 
-for %%I in ("%~dp0.") do set "APP_DIR=%%~fI"
-subst P: "%APP_DIR%" >nul 2>&1
-if errorlevel 1 (
-  echo Unable to create temporary drive P:.
-  echo Please make sure drive P: is not already in use.
+if not exist "%WEB_BUILD%\index.html" (
+  echo Web build not found: %WEB_BUILD%
+  echo Please rebuild the Flutter Web app first.
   pause
   exit /b 1
 )
 
-cd /d P:\
-call "%FLUTTER_EXE%" run -d chrome
+"%DART_EXE%" "%SERVER_SCRIPT%" "%WEB_BUILD%"
+set "DEMO_EXIT_CODE=%ERRORLEVEL%"
 
-subst P: /d >nul 2>&1
-endlocal
-pause
+endlocal & exit /b %DEMO_EXIT_CODE%
