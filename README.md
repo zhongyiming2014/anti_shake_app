@@ -18,7 +18,7 @@ The workspace path contains non-ASCII and punctuation characters. Map it to a
 short drive before running Flutter or Gradle:
 
 ```powershell
-subst S: 'C:\111111111111111111111111SHU\四个一——“防抖笔”'
+subst S: 'C:\XXXXX\XXXXXX'
 Set-Location S:\anti_shake_app
 flutter run
 ```
